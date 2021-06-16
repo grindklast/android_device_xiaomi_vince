@@ -18,9 +18,16 @@ $(call inherit-product, vendor/xiaomi/vince/vince-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 # Overlays
+<<<<<<< HEAD
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-nad
+=======
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# Enable updating of APEXes
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+>>>>>>> 2e01d44 (vince: Flatten APEXs for performance)
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
