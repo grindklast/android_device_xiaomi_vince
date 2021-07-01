@@ -6,11 +6,14 @@ allow qti_init_shell {
 # Allow init to bind mount loader config for media swcodec
 allow init system_file:file mounton;
 
+# Allow init to write to sysfs_battery_supply
+allow init sysfs_battery_supply:file { setattr };
+
 # adsprpcd
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
 # LEDs
 allow init sysfs_leds:lnk_file read;
 
+# SELinux permission
 allow init sysfs:file setattr;
-
