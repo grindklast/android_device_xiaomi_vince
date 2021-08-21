@@ -79,7 +79,7 @@ PRODUCT_COPY_FILES += \
 # ANT
 PRODUCT_PACKAGES += \
     AntHalService \
-    com.dsi.ant.antradio_library \
+    antradio_app \
     libantradio
 
 # APNS Config
@@ -375,8 +375,8 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml \
     telephony-ext
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+# PRODUCT_BOOT_JARS += \
+#     telephony-ext
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
