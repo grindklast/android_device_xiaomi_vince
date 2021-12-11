@@ -18,6 +18,12 @@ DEVICE_PATH := device/xiaomi/vince
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
+# Hals
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/display \
+    hardware/qcom/media \
+    hardware/qcom/gps
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -46,12 +52,13 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 TARGET_KERNEL_CONFIG := vince_defconfig
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.usbconfigfs=true loop.max_part=16
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/xiaomi/vince
 TARGET_KERNEL_VERSION := 4.9
+
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -130,6 +137,7 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_OVERLAY := true
+TARGET_USES_OLD_DISPLAY_HAL := true
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 USE_OPENGL_RENDERER := true
@@ -211,6 +219,7 @@ VENDOR_SECURITY_PATCH := 2020-01-01
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # SurfaceFlinger
 TARGET_USE_QCOM_SURFACEFLINGER := true
