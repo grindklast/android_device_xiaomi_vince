@@ -161,6 +161,12 @@ BOARD_HAVE_QCOM_FM := true
 USE_DEVICE_SPECIFIC_GPS := true
 TARGET_NO_RPC := true
 
+# Hals
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/display \
+    hardware/qcom/media \
+    hardware/qcom/gps
+
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
