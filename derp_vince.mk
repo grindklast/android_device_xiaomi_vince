@@ -19,7 +19,7 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Inherit some common DerpFest stuff.
-$(call inherit-product, vendor/spark/config/common_full_phone.mk)
+$(call inherit-product, vendor/derp/config/common_full_phone.mk)
 
 # Include DerpFest specific sepolicy
 -include device/derp/sepolicy/qcom/sepolicy.mk
